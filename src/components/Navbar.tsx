@@ -4,7 +4,7 @@ import { buttonVariants } from './ui/Button';
 
 const Navbar = async () => {
   return (
-    <div className="fixed backdrop-blur-sm bg-white/60 dark:bg-slate-900/60 z-50 top-0 left-0 right-0 h-16 border-b border-slate-300 dark:border-slate-700 shadow-sm flex items-center justify-between">
+    <div className="fixed backdrop-blur-sm bg-white/60 dark:bg-stone-950/60 z-50 top-0 left-0 right-0 h-16 border-b border-slate-300 dark:border-slate-700 shadow-sm flex items-center justify-between">
       <div className="container max-w-7xl mx-auto w-full flex justify-between items-center">
         <Link
           href="/"
