@@ -7,8 +7,8 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main className="relative h-screen flex items-center justify-center overflow-x-hidden">
+    <div className="relative h-screen flex items-center justify-center overflow-x-hidden">
       <h1>Hello World</h1>
-    </main>
+    </div>
   );
 }
