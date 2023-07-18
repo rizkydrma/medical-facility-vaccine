@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import { FC, useEffect, useRef, useState } from 'react';
 import * as THREE from 'three';
+// @ts-ignore
 import NET from 'vanta/dist/vanta.net.min.js';
 import Icons from './Icons';
 import { buttonVariants } from './ui/Button';
