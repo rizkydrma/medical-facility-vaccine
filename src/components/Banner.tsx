@@ -13,7 +13,7 @@ const Banner: FC<BannerProps> = ({}) => {
             style={{ objectFit: 'contain' }}
             height={400}
             width={600}
-            className="grayscale brightness-200"
+            className="grayscale brightness-200 opacity-30 dark:opacity-60"
             src="/astra-zeneca.png"
             alt="astra zeneca"
           />
@@ -24,7 +24,7 @@ const Banner: FC<BannerProps> = ({}) => {
             style={{ objectFit: 'contain' }}
             height={400}
             width={600}
-            className="grayscale brightness-200"
+            className="grayscale brightness-200 opacity-30 dark:opacity-60"
             src="/sinovac.webp"
             alt="sinovac"
           />
@@ -35,7 +35,7 @@ const Banner: FC<BannerProps> = ({}) => {
             style={{ objectFit: 'contain' }}
             height={400}
             width={600}
-            className="grayscale brightness-200"
+            className="grayscale brightness-200 opacity-30 dark:opacity-60"
             src="/pfizer.png"
             alt="sinovac"
           />
@@ -46,7 +46,7 @@ const Banner: FC<BannerProps> = ({}) => {
             style={{ objectFit: 'contain' }}
             height={400}
             width={600}
-            className="grayscale brightness-200"
+            className="grayscale brightness-200 opacity-30 dark:opacity-60"
             src="/novavac.png"
             alt="novavac"
           />
@@ -57,7 +57,7 @@ const Banner: FC<BannerProps> = ({}) => {
             style={{ objectFit: 'contain' }}
             height={400}
             width={600}
-            className="grayscale brightness-200"
+            className="grayscale brightness-200 opacity-30 dark:opacity-60"
             src="/moderna.png"
             alt="moderna"
           />
@@ -70,7 +70,7 @@ const Banner: FC<BannerProps> = ({}) => {
             style={{ objectFit: 'contain' }}
             height={400}
             width={600}
-            className="grayscale brightness-200"
+            className="grayscale brightness-200 opacity-30 dark:opacity-60"
             src="/astra-zeneca.png"
             alt="astra zeneca"
           />
@@ -81,7 +81,7 @@ const Banner: FC<BannerProps> = ({}) => {
             style={{ objectFit: 'contain' }}
             height={400}
             width={600}
-            className="grayscale brightness-200"
+            className="grayscale brightness-200 opacity-30 dark:opacity-60"
             src="/sinovac.webp"
             alt="sinovac"
           />
@@ -92,7 +92,7 @@ const Banner: FC<BannerProps> = ({}) => {
             style={{ objectFit: 'contain' }}
             height={400}
             width={600}
-            className="grayscale brightness-200"
+            className="grayscale brightness-200 opacity-30 dark:opacity-60"
             src="/pfizer.png"
             alt="sinovac"
           />
@@ -103,7 +103,7 @@ const Banner: FC<BannerProps> = ({}) => {
             style={{ objectFit: 'contain' }}
             height={400}
             width={600}
-            className="grayscale brightness-200"
+            className="grayscale brightness-200 opacity-30 dark:opacity-60"
             src="/novavac.png"
             alt="novavac"
           />
@@ -114,7 +114,7 @@ const Banner: FC<BannerProps> = ({}) => {
             style={{ objectFit: 'contain' }}
             height={400}
             width={600}
-            className="grayscale brightness-200"
+            className="grayscale brightness-200 opacity-30 dark:opacity-60"
             src="/moderna.png"
             alt="moderna"
           />
