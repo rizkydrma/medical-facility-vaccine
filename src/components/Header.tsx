@@ -50,7 +50,7 @@ const Header: FC<HeaderProps> = ({}) => {
           Lets stop this pandemic by killing the virus with a vaccine, dont let yourself and family get infected
         </Paragraph>
         <Link
-          href="/search"
+          href="/find"
           className={buttonVariants({ className: 'rounded-lg hover:text-shadow hover:shadow-stone-100' })}
         >
           Find Medical Facility <Icons.ArrowRightIcon size={16} className="ml-2" />
