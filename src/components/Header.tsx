@@ -47,7 +47,7 @@ const Header: FC<HeaderProps> = ({}) => {
       <div>
         <LargeHeading>Fight Virus With Vaccines</LargeHeading>
         <Paragraph className="mx-auto max-w-4xl mt-2">
-          Let's stop this pandemic by killing the virus with a vaccine, don't let yourself and family get infected
+          Lets stop this pandemic by killing the virus with a vaccine, dont let yourself and family get infected
         </Paragraph>
         <Link
           href="/search"

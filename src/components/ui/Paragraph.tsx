@@ -24,4 +24,6 @@ const Paragraph = forwardRef<HTMLParagraphElement, ParagraphProps>(({ size, clas
   );
 });
 
+Paragraph.displayName = 'Paragraph';
+
 export default Paragraph;
