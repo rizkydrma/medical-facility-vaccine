@@ -1,5 +1,6 @@
 import Banner from '@/components/Banner';
 import Card from '@/components/Card';
+import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import Icons from '@/components/Icons';
 import LargeHeading from '@/components/ui/LargeHeading';
@@ -41,7 +42,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="relative h-screen overflow-x-hidden pb-40">
+    <div className="relative h-screen overflow-x-hidden">
       <Header />
       <Banner />
 
@@ -61,6 +62,7 @@ export default function Home() {
           ))}
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

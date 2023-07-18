@@ -39,7 +39,10 @@ const Header: FC<HeaderProps> = ({}) => {
     };
   }, [vantaEffect]);
   return (
-    <div className="h-[100vh] w-full mx-auto text-center grid place-items-center" ref={vantaRef}>
+    <div
+      className="h-[100vh] w-full mx-auto text-center grid place-items-center after:absolute after:top-0 after:right-0 after:left-0 after:bottom-0 after:bg-gradient-to-b after:from-transparent after:to-stone-50 dark:after:right-0 dark:after:left-0 dark:after:bottom-0 dark:after:bg-gradient-to-b dark:after:from-transparent dark:after:to-stone-950 "
+      ref={vantaRef}
+    >
       <div>
         <LargeHeading>Fight Virus With Vaccines</LargeHeading>
         <Paragraph className="mx-auto max-w-4xl mt-2">
@@ -49,7 +52,7 @@ const Header: FC<HeaderProps> = ({}) => {
           href="/search"
           className={buttonVariants({ className: 'rounded-lg hover:text-shadow hover:shadow-stone-100' })}
         >
-          Search Medical Facility <Icons.ArrowRightIcon size={16} className="ml-2" />
+          Find Medical Facility <Icons.ArrowRightIcon size={16} className="ml-2" />
         </Link>
       </div>
     </div>

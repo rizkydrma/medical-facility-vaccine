@@ -10,7 +10,7 @@ const Banner: FC<BannerProps> = ({}) => {
         <div className="w-full">
           <Image
             quality={100}
-            style={{ objectFit: 'contain' }}
+            style={{ objectFit: 'contain', aspectRatio: 16 / 9 }}
             height={400}
             width={600}
             className="grayscale brightness-200 opacity-30 dark:opacity-60"
@@ -21,7 +21,7 @@ const Banner: FC<BannerProps> = ({}) => {
         <div className="w-full">
           <Image
             quality={100}
-            style={{ objectFit: 'contain' }}
+            style={{ objectFit: 'contain', aspectRatio: 16 / 9 }}
             height={400}
             width={600}
             className="grayscale brightness-200 opacity-30 dark:opacity-60"
@@ -32,7 +32,7 @@ const Banner: FC<BannerProps> = ({}) => {
         <div className="w-full">
           <Image
             quality={100}
-            style={{ objectFit: 'contain' }}
+            style={{ objectFit: 'contain', aspectRatio: 16 / 9 }}
             height={400}
             width={600}
             className="grayscale brightness-200 opacity-30 dark:opacity-60"
@@ -43,7 +43,7 @@ const Banner: FC<BannerProps> = ({}) => {
         <div className="w-full">
           <Image
             quality={100}
-            style={{ objectFit: 'contain' }}
+            style={{ objectFit: 'contain', aspectRatio: 16 / 9 }}
             height={400}
             width={600}
             className="grayscale brightness-200 opacity-30 dark:opacity-60"
@@ -54,7 +54,7 @@ const Banner: FC<BannerProps> = ({}) => {
         <div className="w-full">
           <Image
             quality={100}
-            style={{ objectFit: 'contain' }}
+            style={{ objectFit: 'contain', aspectRatio: 16 / 9 }}
             height={400}
             width={600}
             className="grayscale brightness-200 opacity-30 dark:opacity-60"
@@ -67,7 +67,7 @@ const Banner: FC<BannerProps> = ({}) => {
         <div className="w-full">
           <Image
             quality={100}
-            style={{ objectFit: 'contain' }}
+            style={{ objectFit: 'contain', aspectRatio: 16 / 9 }}
             height={400}
             width={600}
             className="grayscale brightness-200 opacity-30 dark:opacity-60"
@@ -78,7 +78,7 @@ const Banner: FC<BannerProps> = ({}) => {
         <div className="w-full">
           <Image
             quality={100}
-            style={{ objectFit: 'contain' }}
+            style={{ objectFit: 'contain', aspectRatio: 16 / 9 }}
             height={400}
             width={600}
             className="grayscale brightness-200 opacity-30 dark:opacity-60"
@@ -89,7 +89,7 @@ const Banner: FC<BannerProps> = ({}) => {
         <div className="w-full">
           <Image
             quality={100}
-            style={{ objectFit: 'contain' }}
+            style={{ objectFit: 'contain', aspectRatio: 16 / 9 }}
             height={400}
             width={600}
             className="grayscale brightness-200 opacity-30 dark:opacity-60"
@@ -100,7 +100,7 @@ const Banner: FC<BannerProps> = ({}) => {
         <div className="w-full">
           <Image
             quality={100}
-            style={{ objectFit: 'contain' }}
+            style={{ objectFit: 'contain', aspectRatio: 16 / 9 }}
             height={400}
             width={600}
             className="grayscale brightness-200 opacity-30 dark:opacity-60"
@@ -111,7 +111,7 @@ const Banner: FC<BannerProps> = ({}) => {
         <div className="w-full">
           <Image
             quality={100}
-            style={{ objectFit: 'contain' }}
+            style={{ objectFit: 'contain', aspectRatio: 16 / 9 }}
             height={400}
             width={600}
             className="grayscale brightness-200 opacity-30 dark:opacity-60"

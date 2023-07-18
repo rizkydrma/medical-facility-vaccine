@@ -10,7 +10,7 @@ const Navbar = async () => {
           href="/"
           className={buttonVariants({
             variant: 'link',
-            className: 'text-indigo-700 dark:text-stone-50 text-lg font-bold',
+            className: 'text-indigo-700 dark:text-stone-50 text-xl font-bold',
           })}
         >
           Vaccination
@@ -21,9 +21,6 @@ const Navbar = async () => {
         </div>
 
         <div className="hidden md:flex gap-4">
-          <Link href="#educations" className={buttonVariants({ variant: 'ghost' })}>
-            Educations
-          </Link>
           <Link href="/documentation" className={buttonVariants({ className: 'bg-indigo-700' })}>
             Find
           </Link>
