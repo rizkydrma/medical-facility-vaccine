@@ -45,6 +45,7 @@ const ComboboxComponent: FC<ComboboxComponentProps> = ({
           onChange={(event: ChangeEvent<HTMLInputElement>) => setQuery(event.target.value)}
           placeholder={disabled ? 'Loading...' : placeholder}
           displayValue={display}
+          autoComplete="off"
         />
         <Combobox.Button className="absolute inset-y-0 right-0 flex items-center rounded-r-md px-2 focus:outline-none">
           <Icons.ChevronsUpDownIcon size={16} className="text-gray-400" aria-hidden="true" />

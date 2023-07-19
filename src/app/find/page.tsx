@@ -1,4 +1,9 @@
 'use client';
+import { useEffect, useState } from 'react';
+import { LayersControl, MapContainer, TileLayer, ZoomControl } from 'react-leaflet';
+import useSWR from 'swr';
+import { useTheme } from 'next-themes';
+
 import Error from '@/components/Error';
 import Icons from '@/components/Icons';
 import Loading from '@/components/Loading';
@@ -9,10 +14,6 @@ import ComboboxComponent from '@/components/ui/Combobox';
 import useMyLocation from '@/hook/useMyLocation';
 import { ICity, IProvince } from '@/types/places';
 import api from '@/utils/api';
-import { useTheme } from 'next-themes';
-import { useEffect, useState } from 'react';
-import { LayersControl, MapContainer, TileLayer, ZoomControl } from 'react-leaflet';
-import useSWR from 'swr';
 
 const { BaseLayer } = LayersControl;
 
@@ -30,7 +31,6 @@ const FindMedical = () => {
     setLoading(true);
     try {
       const cities = await api.getCities(idProvince);
-      console.log(cities);
       setCities(cities);
     } catch (error) {}
     setLoading(false);
