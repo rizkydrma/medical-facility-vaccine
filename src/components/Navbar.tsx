@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { ThemeToggle } from './ThemeToggle';
 import { buttonVariants } from './ui/Button';
 
-const Navbar = async () => {
+const Navbar = () => {
   return (
     <div className="fixed backdrop-blur-sm bg-white/30 dark:bg-stone-950/30 z-50 top-0 left-0 right-0 h-16 border-b border-stone-300 dark:border-stone-700 shadow-sm flex items-center justify-between">
       <div className="container max-w-7xl mx-auto w-full flex justify-between items-center">

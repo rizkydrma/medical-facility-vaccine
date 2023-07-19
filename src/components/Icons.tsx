@@ -9,6 +9,10 @@ import {
   Users2Icon,
   PersonStandingIcon,
   ActivityIcon,
+  LocateOffIcon,
+  CheckCircle2Icon,
+  ChevronsUpDownIcon,
+  Building2Icon
 } from 'lucide-react';
 
 export const Icons = {
@@ -22,6 +26,10 @@ export const Icons = {
   Users2Icon,
   PersonStandingIcon,
   ActivityIcon,
+  LocateOffIcon,
+  CheckCircle2Icon,
+  ChevronsUpDownIcon,
+  Building2Icon
 };
 
 export default Icons;

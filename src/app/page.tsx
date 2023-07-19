@@ -3,15 +3,10 @@ import Card from '@/components/Card';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import Icons from '@/components/Icons';
+import Navbar from '@/components/Navbar';
 import LargeHeading from '@/components/ui/LargeHeading';
 import Paragraph from '@/components/ui/Paragraph';
 import { IAdvantage } from '@/types/advantage';
-import { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: 'Medical Facility Vaccine',
-  description: 'Search nearest medical facility vaccine in your city.',
-};
 
 export default function Home() {
   const advantages: IAdvantage[] = [
@@ -42,27 +37,31 @@ export default function Home() {
   ];
 
   return (
-    <div className="relative h-screen overflow-x-hidden">
-      <Header />
-      <Banner />
+    <>
+      <Navbar />
 
-      <div className="container pt-16">
-        <LargeHeading size="sm" className="text-left">
-          Why should I vaccine?
-        </LargeHeading>
+      <div className="relative h-screen overflow-x-hidden">
+        <Header />
+        <Banner />
 
-        <Paragraph className="text-left mt-6" size="sm">
-          Getting vaccinated is an important step to protect yourself and others from various infectious diseases. Here
-          are several reasons why you should consider getting vaccinated:
-        </Paragraph>
+        <div className="container pt-16">
+          <LargeHeading size="sm" className="text-left">
+            Why should I vaccine?
+          </LargeHeading>
 
-        <div className="flex w-full gap-6 flex-col md:flex-row mt-6">
-          {advantages?.map((advantage) => (
-            <Card {...advantage} key={advantage?.title} />
-          ))}
+          <Paragraph className="text-left mt-6" size="sm">
+            Getting vaccinated is an important step to protect yourself and others from various infectious diseases.
+            Here are several reasons why you should consider getting vaccinated:
+          </Paragraph>
+
+          <div className="flex w-full gap-6 flex-col md:flex-row mt-6">
+            {advantages?.map((advantage) => (
+              <Card {...advantage} key={advantage?.title} />
+            ))}
+          </div>
         </div>
+        <Footer />
       </div>
-      <Footer />
-    </div>
+    </>
   );
 }
