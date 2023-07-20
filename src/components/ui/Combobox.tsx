@@ -28,6 +28,7 @@ const ComboboxComponent: FC<ComboboxComponentProps> = ({
   display,
 }) => {
   const [query, setQuery] = useState('');
+  console.log('combobox');
 
   const filteredProvince =
     query === '' ? data : data?.filter((item) => item?.value?.toLowerCase().includes(query?.toLowerCase()));

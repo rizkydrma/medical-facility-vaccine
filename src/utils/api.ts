@@ -1,4 +1,4 @@
-import { ICity, IProvince } from '@/types/places';
+import { ICity, IFacilityVaccine, IProvince } from '@/types/places';
 
 const api = (() => {
   const BASE_URL = 'https://kipi.covid19.go.id/api';
@@ -31,7 +31,22 @@ const api = (() => {
     return responseJson?.results;
   }
 
-  return { getProvinces, getCities };
+  async function getFacilityVaccine({
+    province,
+    city,
+  }: {
+    province: string;
+    city: string;
+  }): Promise<IFacilityVaccine[]> {
+    const query = new URLSearchParams({ province, city }).toString();
+    const response = await fetch(`${BASE_URL}/get-faskes-vaksinasi?${query}`);
+
+    const responseJson = await response.json();
+
+    return responseJson?.data;
+  }
+
+  return { getProvinces, getCities, getFacilityVaccine };
 })();
 
 export default api;

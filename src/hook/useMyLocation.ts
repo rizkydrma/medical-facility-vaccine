@@ -5,6 +5,7 @@ const useMyLocation = () => {
   const [myLocation, setMyLocation] = useState<Pick<Coordinates, 'latitude' | 'longitude'> | null>(null);
 
   useEffect(() => {
+    console.log('Asd');
     if (typeof window !== undefined) {
       if ('geolocation' in navigator) {
         navigator.geolocation.getCurrentPosition((position) => {

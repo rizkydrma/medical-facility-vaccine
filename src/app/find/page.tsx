@@ -5,25 +5,26 @@ import useSWR from 'swr';
 import Error from '@/components/Error';
 import Icons from '@/components/Icons';
 import Loading from '@/components/Loading';
+import LocationOff from '@/components/LocationOff';
 import Navbar from '@/components/Navbar';
 import Sidebar from '@/components/Sidebar';
+import { Button } from '@/components/ui/Button';
 import ComboboxComponent from '@/components/ui/Combobox';
-import { ICity, IProvince } from '@/types/places';
+import useMyLocation from '@/hook/useMyLocation';
+import { ICity, IFacilityVaccine, IProvince } from '@/types/places';
 import api from '@/utils/api';
 import dynamic from 'next/dynamic';
-import useMyLocation from '@/hook/useMyLocation';
-import LocationOff from '@/components/LocationOff';
+
+const Map = dynamic(() => import('@/components/Map'), { ssr: false });
 
 const FindMedical = () => {
   const { data, error, isLoading } = useSWR('/api/provinces', api.getProvinces);
-  const [collapse, setCollapse] = useState(false);
   const [loading, setLoading] = useState(false);
   const [selectedProvince, setSelectedProvince] = useState<IProvince | null>(null);
   const [selectedCity, setSelectedCity] = useState<ICity | null>(null);
   const [cities, setCities] = useState<ICity[]>([]);
+  const [facilities, setFacilities] = useState<IFacilityVaccine[]>([]);
   const myLocation = useMyLocation();
-
-  const Map = dynamic(() => import('@/components/Map'), { ssr: false });
 
   const fetchCities = async (idProvince: string) => {
     setLoading(true);
@@ -32,6 +33,21 @@ const FindMedical = () => {
       setCities(cities);
     } catch (error) {}
     setLoading(false);
+  };
+
+  const fetchFacilityVaccine = async ({ province, city }: { province: string; city: string }) => {
+    setLoading(true);
+    try {
+      const resFacilities = await api.getFacilityVaccine({ province, city });
+      console.log(resFacilities, province, city);
+      setFacilities(resFacilities);
+    } catch (error) {}
+    setLoading(false);
+  };
+
+  const onSearch = () => {
+    if (!selectedProvince || !selectedCity) return;
+    fetchFacilityVaccine({ province: selectedProvince?.value, city: selectedCity?.value });
   };
 
   useEffect(() => {
@@ -46,7 +62,7 @@ const FindMedical = () => {
 
   return (
     <div>
-      <Sidebar collapse={collapse} setCollapse={setCollapse}>
+      <Sidebar>
         <Navbar />
 
         <div className="px-10 py-4 mt-16 border-b dark:border-b-stone-600">
@@ -77,11 +93,15 @@ const FindMedical = () => {
             disabled={loading}
             display={(data: ICity) => data?.value}
           />
+
+          <Button size="sm" className="mt-4" onClick={onSearch} isLoading={loading}>
+            Search
+          </Button>
         </div>
       </Sidebar>
 
       <div className="z-0 transition duration-600 relative">
-        <Map myLocation={myLocation} />
+        <Map myLocation={myLocation} facilities={facilities} />
       </div>
     </div>
   );

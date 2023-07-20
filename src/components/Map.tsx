@@ -1,14 +1,22 @@
+import { IFacilityVaccine } from '@/types/places';
 import { useTheme } from 'next-themes';
-import { FC } from 'react';
-import { LayersControl, MapContainer, TileLayer, ZoomControl } from 'react-leaflet';
+import { FC, memo } from 'react';
+import { LayersControl, MapContainer, Marker, Popup, TileLayer, ZoomControl } from 'react-leaflet';
+import { icon } from 'leaflet';
+
+const ICON = icon({
+  iconUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png',
+  iconSize: [30, 40],
+});
 
 interface MapProps {
-  myLocation: any;
+  myLocation: Omit<Coordinates, 'id' | 'value'>;
+  facilities: IFacilityVaccine[];
 }
 
 const { BaseLayer } = LayersControl;
 
-const Map: FC<MapProps> = ({ myLocation }) => {
+const Map: FC<MapProps> = ({ myLocation, facilities }) => {
   const { theme } = useTheme();
 
   return (
@@ -35,9 +43,17 @@ const Map: FC<MapProps> = ({ myLocation }) => {
         </BaseLayer>
       </LayersControl>
 
+      {facilities?.length > 0
+        ? facilities?.map((facility) => (
+            <Marker position={[facility?.latitude, facility?.longitude]} icon={ICON}>
+              <Popup>{facility?.nama}</Popup>
+            </Marker>
+          ))
+        : null}
+
       {/* <Routing geolocation={geolocation} handleClickMap={onClickMap} setRouteDirection={setRouteDirection} /> */}
     </MapContainer>
   );
 };
 
-export default Map;
+export default memo(Map);

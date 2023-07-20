@@ -1,14 +1,13 @@
 import { cn } from '@/lib/utils';
-import { FC, HTMLAttributes } from 'react';
+import { FC, HTMLAttributes, memo, useState } from 'react';
 import Icons from './Icons';
 
 interface SidebarProps extends HTMLAttributes<HTMLDivElement> {
-  collapse: boolean;
-  setCollapse: React.Dispatch<React.SetStateAction<boolean>>;
   children?: React.ReactNode;
 }
 
-const Sidebar: FC<SidebarProps> = ({ collapse, setCollapse, children }) => {
+const Sidebar: FC<SidebarProps> = ({ children }) => {
+  const [collapse, setCollapse] = useState(false);
   return (
     <>
       <div
@@ -22,7 +21,7 @@ const Sidebar: FC<SidebarProps> = ({ collapse, setCollapse, children }) => {
 
       {/* BUTTON COLLAPSE */}
       <button
-        onClick={() => setCollapse(!collapse)}
+        onClick={() => setCollapse((prevState) => !prevState)}
         className={cn(
           'h-20 w-8 bg-white dark:bg-stone-800 rounded-tr-md rounded-br-md absolute top-0 bottom-0 translate-y-[calc(50vh)] border-l dark:border-l-stone-900 z-20 shadow-md items-center flex justify-center transition duration-200',
           collapse ? 'translate-x-80 lg:translate-x-[28rem]' : 'translate-x-0',
@@ -37,4 +36,4 @@ const Sidebar: FC<SidebarProps> = ({ collapse, setCollapse, children }) => {
   );
 };
 
-export default Sidebar;
+export default memo(Sidebar);

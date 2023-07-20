@@ -15,8 +15,8 @@ export interface IFacilityVaccine {
   kota: string;
   provinsi: string;
   alamat: string;
-  latitude: string;
-  longitude: string;
+  latitude: number;
+  longitude: number;
   telp: string;
   jenis_faskes: string;
   kelas_rs: string;
