@@ -39,7 +39,6 @@ const FindMedical = () => {
     setLoading(true);
     try {
       const resFacilities = await api.getFacilityVaccine({ province, city });
-      console.log(resFacilities, province, city);
       setFacilities(resFacilities);
     } catch (error) {}
     setLoading(false);
