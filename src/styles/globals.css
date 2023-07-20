@@ -86,3 +86,7 @@
     text-shadow: rgb(0 0 0 / 56%) 0px 3px 12px;
   }
 }
+
+.leaflet-control-container .leaflet-routing-container-hide {
+  display: none;
+}

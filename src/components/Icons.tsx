@@ -12,7 +12,8 @@ import {
   LocateOffIcon,
   CheckCircle2Icon,
   ChevronsUpDownIcon,
-  Building2Icon
+  Building2Icon,
+  CompassIcon,
 } from 'lucide-react';
 
 export const Icons = {
@@ -29,7 +30,8 @@ export const Icons = {
   LocateOffIcon,
   CheckCircle2Icon,
   ChevronsUpDownIcon,
-  Building2Icon
+  Building2Icon,
+  CompassIcon,
 };
 
 export default Icons;
