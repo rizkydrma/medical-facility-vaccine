@@ -93,7 +93,12 @@ const FindMedical = () => {
             display={(data: ICity) => data?.value}
           />
 
-          <Button size="sm" className="mt-4 text-ss" onClick={onSearch} isLoading={loading}>
+          <Button
+            size="sm"
+            className="mt-4 text-ss bg-stone-200 dark:bg-stone-700 text-stone-700 dark:text-stone-200"
+            onClick={onSearch}
+            isLoading={loading}
+          >
             <Icons.SearchIcon className="w-4 mr-2" /> Search
           </Button>
         </div>
