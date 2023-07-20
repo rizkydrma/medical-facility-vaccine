@@ -2,11 +2,18 @@ import { IFacilityVaccine } from '@/types/places';
 import { useTheme } from 'next-themes';
 import { FC, memo } from 'react';
 import { LayersControl, MapContainer, Marker, Popup, TileLayer, ZoomControl } from 'react-leaflet';
-import { icon } from 'leaflet';
+import { icon, divIcon, point } from 'leaflet';
+import MarkerClusterGroup from 'react-leaflet-cluster';
 
 const ICON = icon({
   iconUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png',
   iconSize: [30, 40],
+});
+
+const CurrentMarker = divIcon({
+  html: `<span class="border-red-600 text-white animate-pulse rounded-full border-[4px] w-6 h-6 flex items-center justify-center"></span>`,
+  className: 'custom-marker-cluster',
+  iconSize: point(33, 33, true),
 });
 
 interface MapProps {
@@ -18,6 +25,14 @@ const { BaseLayer } = LayersControl;
 
 const Map: FC<MapProps> = ({ myLocation, facilities }) => {
   const { theme } = useTheme();
+
+  const createClusterCustomIcon = function (cluster: any): any {
+    return divIcon({
+      html: `<span class="dark:bg-stone-700 dark:border-stone-200 dark:text-stone-200 text-white p-3 rounded-full border-2 w-10 h-10 flex items-center justify-center ">${cluster.getChildCount()}</span>`,
+      className: 'custom-marker-cluster',
+      iconSize: point(33, 33, true),
+    });
+  };
 
   return (
     <MapContainer
@@ -43,13 +58,19 @@ const Map: FC<MapProps> = ({ myLocation, facilities }) => {
         </BaseLayer>
       </LayersControl>
 
-      {facilities?.length > 0
-        ? facilities?.map((facility) => (
+      <Marker position={[myLocation.latitude, myLocation.longitude]} icon={CurrentMarker}>
+        <Popup>My Current Location</Popup>
+      </Marker>
+
+      {facilities?.length > 0 ? (
+        <MarkerClusterGroup chunkedLoading iconCreateFunction={createClusterCustomIcon} maxClusterRadius={50}>
+          {facilities?.map((facility) => (
             <Marker position={[facility?.latitude, facility?.longitude]} icon={ICON} key={facility?.id}>
               <Popup>{facility?.nama}</Popup>
             </Marker>
-          ))
-        : null}
+          ))}
+        </MarkerClusterGroup>
+      ) : null}
 
       {/* <Routing geolocation={geolocation} handleClickMap={onClickMap} setRouteDirection={setRouteDirection} /> */}
     </MapContainer>
