@@ -85,8 +85,16 @@
   .text-shadow {
     text-shadow: rgb(0 0 0 / 56%) 0px 3px 12px;
   }
+  .text-ss {
+    font-size: 0.725rem;
+  }
 }
 
 .leaflet-control-container .leaflet-routing-container-hide {
   display: none;
+}
+
+:is(.dark .leaflet-popup-content-wrapper, .dark .leaflet-popup-tip) {
+  background: #292524;
+  color: #e7e5e4;
 }

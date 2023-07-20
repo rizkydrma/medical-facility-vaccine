@@ -41,7 +41,7 @@ const ComboboxComponent: FC<ComboboxComponentProps> = ({
       )}
       <div className="relative mt-1">
         <Combobox.Input
-          className="w-full rounded-md border-0 dark:bg-stone-700 bg-stone-100 py-1.5 pl-3 pr-10 dark:text-stone-200 text-stone-800 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+          className="w-full rounded-md border-0 dark:bg-stone-700 bg-stone-100 py-1.5 pl-3 pr-10 dark:text-stone-200 text-stone-800 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 text-xs sm:leading-6"
           onChange={(event: ChangeEvent<HTMLInputElement>) => setQuery(event.target.value)}
           placeholder={disabled ? 'Loading...' : placeholder}
           displayValue={display}
@@ -52,7 +52,7 @@ const ComboboxComponent: FC<ComboboxComponentProps> = ({
         </Combobox.Button>
 
         {filteredProvince.length > 0 && (
-          <Combobox.Options className="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md dark:bg-stone-700 bg-stone-100 py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm">
+          <Combobox.Options className="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md dark:bg-stone-700 bg-stone-100 py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none text-xs">
             {filteredProvince.map((person) => (
               <Combobox.Option
                 key={person.id}

@@ -14,6 +14,9 @@ import {
   ChevronsUpDownIcon,
   Building2Icon,
   CompassIcon,
+  BadgeCheckIcon,
+  SearchIcon,
+  PhoneIcon,
 } from 'lucide-react';
 
 export const Icons = {
@@ -32,6 +35,9 @@ export const Icons = {
   ChevronsUpDownIcon,
   Building2Icon,
   CompassIcon,
+  BadgeCheckIcon,
+  SearchIcon,
+  PhoneIcon,
 };
 
 export default Icons;

@@ -71,24 +71,26 @@ const Map: FC<MapProps> = ({ myLocation, facilities }) => {
           {facilities?.map((facility) => (
             <Marker position={[facility?.latitude, facility?.longitude]} icon={ICON} key={facility?.id}>
               <Popup>
-                <p className="text-xs font-medium">{facility?.nama}</p>
+                <span className="text-sm font-medium">{facility?.nama}</span>
+                <div className="flex gap-4 items-center pt-2 ">
+                  <div className="flex items-center gap-2 w-fit dark:text-green-500 text-green-600 text-ss">
+                    <Icons.BadgeCheckIcon size={15} className="dark:text-green-500 text-green-600" /> {facility?.status}
+                  </div>
 
-                <div className="flex items-center gap-3">
-                  <Button
-                    size="sm"
-                    variant="ghost"
-                    className="text-xs"
-                    onClick={() => setDestination({ latitude: facility?.latitude, longitude: facility?.longitude })}
-                  >
-                    <Icons.CompassIcon size={14} className="mr-2 text-blue-300" />
-                    Directions
-                  </Button>
-
-                  <Button size="sm" variant="ghost" className="text-xs">
-                    <Icons.CompassIcon size={14} className="mr-2" />
-                    Open with Gmap
-                  </Button>
+                  <div className="flex items-center gap-1 dark:text-stone-200 text-stone-800 text-ss">
+                    <Icons.PhoneIcon size={13} /> {facility?.telp || '-'}
+                  </div>
                 </div>
+                <span className="text-ss pt-2 block">{facility?.alamat}</span>
+                <Button
+                  size="sm"
+                  variant="ghost"
+                  className="text-xs border py-1 px-2 mt-3 hover:dark:bg-stone-900"
+                  onClick={() => setDestination({ latitude: facility?.latitude, longitude: facility?.longitude })}
+                >
+                  <Icons.CompassIcon size={14} className="mr-2 text-blue-300" />
+                  Directions
+                </Button>
               </Popup>
             </Marker>
           ))}
