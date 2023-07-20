@@ -45,7 +45,7 @@ const Map: FC<MapProps> = ({ myLocation, facilities }) => {
 
       {facilities?.length > 0
         ? facilities?.map((facility) => (
-            <Marker position={[facility?.latitude, facility?.longitude]} icon={ICON}>
+            <Marker position={[facility?.latitude, facility?.longitude]} icon={ICON} key={facility?.id}>
               <Popup>{facility?.nama}</Popup>
             </Marker>
           ))
