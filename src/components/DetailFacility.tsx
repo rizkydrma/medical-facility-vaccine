@@ -4,13 +4,13 @@ import { nanoid } from 'nanoid';
 import { FC, Fragment } from 'react';
 import Icons from './Icons';
 import PanelDetailFacility from './PanelDetailFacility';
-import { buttonVariants } from './ui/Button';
+import { Button, buttonVariants } from './ui/Button';
 import DisclosureComponent from './ui/Disclosure';
 
 interface DetailFacilityProps {}
 
 const DetailFacility: FC<DetailFacilityProps> = ({}) => {
-  const { facility, collapse, setCollapse } = useMapContext();
+  const { facility, collapse, setCollapse, setDestination } = useMapContext();
 
   if (!facility) return null;
 
@@ -48,11 +48,21 @@ const DetailFacility: FC<DetailFacilityProps> = ({}) => {
         <header className="container w-full mt-20 border-b dark:border-stone-600 border-stone-800 pb-4">
           <div className="flex justify-between items-start ">
             <h1 className={buttonVariants({ variant: 'link', className: 'text-sm' })}>{facility?.nama}</h1>
-            <button onClick={() => setCollapse(false)}>
+            <button onClick={() => setCollapse(false)} className="pr-2">
               <Icons.XIcon size={20} fontWeight={800} className="text-stone-800 dark:text-stone-200" />
             </button>
           </div>
           <p className={buttonVariants({ variant: 'link', className: 'text-ss' })}>{facility?.alamat}</p>
+
+          <Button
+            size="sm"
+            variant="ghost"
+            className="text-xs border py-1 px-2 mt-6 hover:dark:bg-stone-900 ml-4"
+            onClick={() => setDestination({ latitude: facility?.latitude, longitude: facility?.longitude })}
+          >
+            <Icons.CompassIcon size={14} className="mr-2 text-blue-300" />
+            Directions
+          </Button>
         </header>
 
         <div className="container w-full mt-4 border-b dark:border-stone-600 border-stone-800 pb-4">

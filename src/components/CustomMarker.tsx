@@ -41,8 +41,8 @@ const CustomMarker: FC<CustomMarkerProps> = ({ facility }) => {
   );
 
   const closePopup = () => {
-    setCollapse(false);
-    setFacility(null);
+    // setCollapse(false);
+    // setFacility(null);
     map.closePopup();
   };
 
