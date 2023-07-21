@@ -1,16 +1,17 @@
 'use client';
-import { FC, useEffect } from 'react';
-import { useMap } from 'react-leaflet';
+import useMapContext from '@/context/useMapContext';
 import L from 'leaflet';
 import 'leaflet-routing-machine';
 import 'leaflet-routing-machine/dist/leaflet-routing-machine.css';
+import { FC, useEffect } from 'react';
+import { useMap } from 'react-leaflet';
 
 interface RoutingMapProps {
-  start: Omit<Coordinates, 'id' | 'value'>;
-  destination: Omit<Coordinates, 'id' | 'value'> | null;
+  start: IGeolocation;
 }
 
-const RoutingMap: FC<RoutingMapProps> = ({ start, destination }) => {
+const RoutingMap: FC<RoutingMapProps> = ({ start }) => {
+  const { destination } = useMapContext();
   const map = useMap();
 
   useEffect(() => {

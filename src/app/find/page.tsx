@@ -2,14 +2,17 @@
 import { useEffect, useState } from 'react';
 import useSWR from 'swr';
 
+import DetailFacility from '@/components/DetailFacility';
 import Error from '@/components/Error';
 import Icons from '@/components/Icons';
 import Loading from '@/components/Loading';
 import LocationOff from '@/components/LocationOff';
 import Navbar from '@/components/Navbar';
 import Sidebar from '@/components/Sidebar';
+import SneakPeekFacility from '@/components/SneakPeekFacility';
 import { Button } from '@/components/ui/Button';
 import ComboboxComponent from '@/components/ui/Combobox';
+import { FacilityProvider } from '@/context/useMapContext';
 import useMyLocation from '@/hook/useMyLocation';
 import { ICity, IFacilityVaccine, IProvince } from '@/types/places';
 import api from '@/utils/api';
@@ -60,7 +63,7 @@ const FindMedical = () => {
   if (!myLocation) return <LocationOff />;
 
   return (
-    <div>
+    <FacilityProvider>
       <Sidebar>
         <Navbar />
 
@@ -95,19 +98,22 @@ const FindMedical = () => {
 
           <Button
             size="sm"
-            className="mt-4 text-ss bg-stone-200 dark:bg-stone-700 text-stone-700 dark:text-stone-200"
+            className="mt-4 text-ss bg-stone-200 dark:bg-stone-700 text-stone-700 dark:text-stone-200 hover:dark:bg-stone-900"
             onClick={onSearch}
             isLoading={loading}
           >
             <Icons.SearchIcon className="w-4 mr-2" /> Search
           </Button>
         </div>
+
+        <SneakPeekFacility />
+        <DetailFacility />
       </Sidebar>
 
       <div className="z-0 transition duration-600 relative">
         <Map myLocation={myLocation} facilities={facilities} />
       </div>
-    </div>
+    </FacilityProvider>
   );
 };
 

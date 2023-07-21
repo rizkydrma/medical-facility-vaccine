@@ -14,7 +14,7 @@ const CurrentMarker = divIcon({
 });
 
 interface MapProps {
-  myLocation: Omit<Coordinates, 'id' | 'value'>;
+  myLocation: IGeolocation;
   facilities: IFacilityVaccine[];
 }
 
@@ -22,7 +22,6 @@ const { BaseLayer } = LayersControl;
 
 const Map: FC<MapProps> = ({ myLocation, facilities }) => {
   const { theme } = useTheme();
-  const [destination, setDestination] = useState<Omit<Coordinates, 'id' | 'value'> | null>(null);
 
   const createClusterCustomIcon = function (cluster: any): any {
     return divIcon({
@@ -63,12 +62,12 @@ const Map: FC<MapProps> = ({ myLocation, facilities }) => {
       {facilities?.length > 0 ? (
         <MarkerClusterGroup chunkedLoading iconCreateFunction={createClusterCustomIcon} maxClusterRadius={50}>
           {facilities?.map((facility) => (
-            <CustomMarker {...facility} setDestination={setDestination} />
+            <CustomMarker key={facility?.id} facility={facility} />
           ))}
         </MarkerClusterGroup>
       ) : null}
 
-      <RoutingMap start={myLocation} destination={destination} />
+      <RoutingMap start={myLocation} />
     </MapContainer>
   );
 };

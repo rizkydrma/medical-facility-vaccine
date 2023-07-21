@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 
 const useMyLocation = () => {
-  const [myLocation, setMyLocation] = useState<Pick<Coordinates, 'latitude' | 'longitude'> | null>(null);
+  const [myLocation, setMyLocation] = useState<IGeolocation | null>(null);
 
   useEffect(() => {
     if ('geolocation' in navigator) {

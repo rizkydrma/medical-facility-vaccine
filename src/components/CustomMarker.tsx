@@ -1,12 +1,13 @@
+import useMapContext from '@/context/useMapContext';
 import { IFacilityVaccine } from '@/types/places';
-import { Dispatch, FC, SetStateAction } from 'react';
-import { Marker, MarkerProps, Popup, useMap, useMapEvents } from 'react-leaflet';
+import { icon } from 'leaflet';
+import { FC, useMemo, useRef } from 'react';
+import { Marker, Popup, useMap } from 'react-leaflet';
 import Icons from './Icons';
 import { Button } from './ui/Button';
-import { icon } from 'leaflet';
 
-interface CustomMarkerProps extends IFacilityVaccine {
-  setDestination: Dispatch<SetStateAction<Omit<Coordinates, 'id' | 'value'> | null>>;
+interface CustomMarkerProps {
+  facility: IFacilityVaccine;
 }
 
 const ICON = icon({
@@ -14,25 +15,43 @@ const ICON = icon({
   iconSize: [30, 40],
 });
 
-const CustomMarker: FC<CustomMarkerProps> = ({
-  alamat,
-  telp,
-  longitude,
-  latitude,
-  id,
-  status,
-  nama,
-  setDestination,
-}) => {
+const CustomMarker: FC<CustomMarkerProps> = ({ facility }) => {
+  const { alamat, telp, longitude, latitude, status, nama } = facility;
+  const { setFacility, setCollapse, setDestination } = useMapContext();
+
   const map = useMap();
   const onDestination = () => {
     map.closePopup();
     setDestination({ latitude: latitude, longitude: longitude });
   };
 
+  const markerRef = useRef(null);
+  const handlersMarker = useMemo(
+    () => ({
+      click() {
+        const marker = markerRef.current;
+
+        if (marker) {
+          setFacility(facility);
+          setCollapse(true);
+        }
+      },
+    }),
+    [],
+  );
+
+  const closePopup = () => {
+    setCollapse(false);
+    setFacility(null);
+    map.closePopup();
+  };
+
   return (
-    <Marker position={[latitude, longitude]} icon={ICON} key={id}>
-      <Popup>
+    <Marker position={[latitude, longitude]} icon={ICON} ref={markerRef} eventHandlers={handlersMarker}>
+      <Popup closeButton={false} closeOnClick={false}>
+        <button type="button" className="absolute top-4 right-4" onClick={closePopup}>
+          <Icons.XIcon size={14} className="text-stone-800 dark:text-stone-200" />
+        </button>
         <span className="text-sm font-medium">{nama}</span>
         <div className="flex gap-4 items-center pt-2 ">
           <div className="flex items-center gap-2 w-fit dark:text-green-500 text-green-600 text-ss">

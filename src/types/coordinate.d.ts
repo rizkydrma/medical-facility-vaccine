@@ -1,1 +1,9 @@
-type Coordinates = { id: string; latitude: number; longitude: number; value: string };
+interface IGeolocation {
+  latitude: number;
+  longitude: number;
+}
+interface IGeoVal {
+  id: string;
+  value: string;
+}
+type ICoordinates = IGeolocation & IGeoVal;

@@ -17,6 +17,9 @@ import {
   BadgeCheckIcon,
   SearchIcon,
   PhoneIcon,
+  ChevronUpIcon,
+  EyeIcon,
+  XIcon,
 } from 'lucide-react';
 
 export const Icons = {
@@ -38,6 +41,9 @@ export const Icons = {
   BadgeCheckIcon,
   SearchIcon,
   PhoneIcon,
+  ChevronUpIcon,
+  EyeIcon,
+  XIcon,
 };
 
 export default Icons;
