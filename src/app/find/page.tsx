@@ -30,6 +30,7 @@ const FindMedical = () => {
   const [cities, setCities] = useState<ICity[]>([]);
   const [facilities, setFacilities] = useState<IFacilityVaccine[]>([]);
   const myLocation = useMyLocation();
+  const [mapCenter, setMapCenter] = useState<IGeolocation | null>(null);
 
   const fetchCities = async (idProvince: string) => {
     setLoading(true);
@@ -45,6 +46,11 @@ const FindMedical = () => {
     try {
       const resFacilities = await api.getFacilityVaccine({ province, city });
       setFacilities(resFacilities);
+
+      if (resFacilities.length) {
+        const { latitude, longitude } = resFacilities?.[0];
+        setMapCenter({ latitude, longitude });
+      }
     } catch (error) {}
     setLoading(false);
   };
@@ -115,7 +121,7 @@ const FindMedical = () => {
       </Sidebar>
 
       <div className="z-0 transition duration-600 relative">
-        <Map myLocation={myLocation} facilities={facilities} />
+        <Map myLocation={myLocation} center={mapCenter} facilities={facilities} />
       </div>
     </FacilityProvider>
   );

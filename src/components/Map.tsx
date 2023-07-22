@@ -1,10 +1,11 @@
 import { IFacilityVaccine } from '@/types/places';
 import { divIcon, point } from 'leaflet';
 import { useTheme } from 'next-themes';
-import { FC, memo, useState } from 'react';
+import { FC, memo } from 'react';
 import { LayersControl, MapContainer, Marker, Popup, TileLayer, ZoomControl } from 'react-leaflet';
 import MarkerClusterGroup from 'react-leaflet-cluster';
 import CustomMarker from './CustomMarker';
+import RecenterMap from './RecenterMap';
 import RoutingMap from './RoutingMap';
 
 const CurrentMarker = divIcon({
@@ -15,12 +16,13 @@ const CurrentMarker = divIcon({
 
 interface MapProps {
   myLocation: IGeolocation;
+  center: IGeolocation | null;
   facilities: IFacilityVaccine[];
 }
 
 const { BaseLayer } = LayersControl;
 
-const Map: FC<MapProps> = ({ myLocation, facilities }) => {
+const Map: FC<MapProps> = ({ myLocation, center, facilities }) => {
   const { theme } = useTheme();
 
   const createClusterCustomIcon = function (cluster: any): any {
@@ -68,6 +70,7 @@ const Map: FC<MapProps> = ({ myLocation, facilities }) => {
       ) : null}
 
       <RoutingMap start={myLocation} />
+      <RecenterMap location={center} />
     </MapContainer>
   );
 };
