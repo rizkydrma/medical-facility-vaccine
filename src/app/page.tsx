@@ -7,6 +7,12 @@ import Navbar from '@/components/Navbar';
 import LargeHeading from '@/components/ui/LargeHeading';
 import Paragraph from '@/components/ui/Paragraph';
 import { IAdvantage } from '@/types/advantage';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Medical Facility Vaccine',
+  description: 'Search nearest medical facility vaccine in your city.',
+};
 
 export default function Home() {
   const advantages: IAdvantage[] = [
