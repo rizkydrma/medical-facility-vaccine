@@ -33,6 +33,7 @@ import {
   SplitIcon,
   HomeIcon,
   Undo2Icon,
+  LocateIcon,
 } from 'lucide-react';
 
 export const Icons = {
@@ -70,6 +71,7 @@ export const Icons = {
   SplitIcon,
   HomeIcon,
   Undo2Icon,
+  LocateIcon,
 };
 
 export default Icons;

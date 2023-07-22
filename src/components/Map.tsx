@@ -7,6 +7,7 @@ import MarkerClusterGroup from 'react-leaflet-cluster';
 import CustomMarker from './CustomMarker';
 import RecenterMap from './RecenterMap';
 import RoutingMap from './RoutingMap';
+import ResetLocation from './ui/ResetLocation';
 
 const CurrentMarker = divIcon({
   html: `<span class="border-red-600 text-white animate-pulse rounded-full border-[4px] w-6 h-6 flex items-center justify-center"></span>`,
@@ -34,44 +35,47 @@ const Map: FC<MapProps> = ({ myLocation, center, facilities }) => {
   };
 
   return (
-    <MapContainer
-      center={[myLocation.latitude, myLocation.longitude]}
-      zoom={13}
-      style={{ height: '100vh' }}
-      zoomControl={false}
-    >
-      <ZoomControl position="topright" />
+    <div className="relative">
+      <MapContainer
+        center={[myLocation.latitude, myLocation.longitude]}
+        zoom={13}
+        style={{ height: '100vh' }}
+        zoomControl={false}
+      >
+        <ZoomControl position="topright" />
 
-      <LayersControl hideSingleBase>
-        <BaseLayer name="Light" checked={theme === 'light'}>
-          <TileLayer
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          />
-        </BaseLayer>
-        <BaseLayer name="Dark" checked={theme !== 'light'}>
-          <TileLayer
-            url="https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png"
-            attribution='&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
-          />
-        </BaseLayer>
-      </LayersControl>
+        <LayersControl hideSingleBase>
+          <BaseLayer name="Light" checked={theme === 'light'}>
+            <TileLayer
+              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            />
+          </BaseLayer>
+          <BaseLayer name="Dark" checked={theme !== 'light'}>
+            <TileLayer
+              url="https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png"
+              attribution='&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
+            />
+          </BaseLayer>
+        </LayersControl>
 
-      <Marker position={[myLocation.latitude, myLocation.longitude]} icon={CurrentMarker}>
-        <Popup>My Current Location</Popup>
-      </Marker>
+        <Marker position={[myLocation.latitude, myLocation.longitude]} icon={CurrentMarker}>
+          <Popup>My Current Location</Popup>
+        </Marker>
 
-      {facilities?.length > 0 ? (
-        <MarkerClusterGroup chunkedLoading iconCreateFunction={createClusterCustomIcon} maxClusterRadius={50}>
-          {facilities?.map((facility) => (
-            <CustomMarker key={facility?.id} facility={facility} />
-          ))}
-        </MarkerClusterGroup>
-      ) : null}
+        {facilities?.length > 0 ? (
+          <MarkerClusterGroup chunkedLoading iconCreateFunction={createClusterCustomIcon} maxClusterRadius={50}>
+            {facilities?.map((facility) => (
+              <CustomMarker key={facility?.id} facility={facility} />
+            ))}
+          </MarkerClusterGroup>
+        ) : null}
 
-      <RoutingMap start={myLocation} />
-      <RecenterMap location={center} />
-    </MapContainer>
+        <RoutingMap start={myLocation} />
+        <RecenterMap location={center} />
+        <ResetLocation location={myLocation} />
+      </MapContainer>
+    </div>
   );
 };
 
