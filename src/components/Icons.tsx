@@ -20,6 +20,19 @@ import {
   ChevronUpIcon,
   EyeIcon,
   XIcon,
+  CarIcon,
+  RouterIcon,
+  MilestoneIcon,
+  ArrowLeftIcon,
+  MapPin,
+  MoveUpIcon,
+  CornerUpLeftIcon,
+  MoveUpLeft,
+  CornerUpRightIcon,
+  MoveUpRight,
+  SplitIcon,
+  HomeIcon,
+  Undo2Icon,
 } from 'lucide-react';
 
 export const Icons = {
@@ -44,6 +57,19 @@ export const Icons = {
   ChevronUpIcon,
   EyeIcon,
   XIcon,
+  CarIcon,
+  RouterIcon,
+  MilestoneIcon,
+  ArrowLeftIcon,
+  MapPin,
+  MoveUpIcon,
+  CornerUpLeftIcon,
+  MoveUpLeft,
+  CornerUpRightIcon,
+  MoveUpRight,
+  SplitIcon,
+  HomeIcon,
+  Undo2Icon,
 };
 
 export default Icons;

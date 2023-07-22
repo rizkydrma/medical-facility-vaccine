@@ -1,6 +1,7 @@
 import { cn } from '@/lib/utils';
 import { FC, HTMLAttributes, memo, useState } from 'react';
 import Icons from './Icons';
+import ContainerSide from './ui/ContainerSide';
 
 interface SidebarProps extends HTMLAttributes<HTMLDivElement> {
   children?: React.ReactNode;
@@ -10,14 +11,7 @@ const Sidebar: FC<SidebarProps> = ({ children }) => {
   const [collapse, setCollapse] = useState(false);
   return (
     <>
-      <div
-        className={cn(
-          'fixed top-0 bottom-0 bg-white dark:bg-stone-800 z-20 transition',
-          collapse ? 'translate-x-0' : '-translate-x-80 lg:-translate-x-[28rem]',
-        )}
-      >
-        <div className={`z-20 h-full max-h-[100vh] w-80 lg:w-[28rem] overflow-y-scroll`}>{children}</div>
-      </div>
+      <ContainerSide show={collapse}>{children}</ContainerSide>
 
       {/* BUTTON COLLAPSE */}
       <button

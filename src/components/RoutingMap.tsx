@@ -11,7 +11,7 @@ interface RoutingMapProps {
 }
 
 const RoutingMap: FC<RoutingMapProps> = ({ start }) => {
-  const { destination } = useMapContext();
+  const { destination, setRouteDirection } = useMapContext();
   const map = useMap();
 
   useEffect(() => {
@@ -46,6 +46,10 @@ const RoutingMap: FC<RoutingMapProps> = ({ start }) => {
       plan,
       show: false,
     }).addTo(map);
+
+    routingControl.on('routeselected', (event) => {
+      setRouteDirection(event?.route);
+    });
 
     return () => {
       map.removeControl(routingControl);

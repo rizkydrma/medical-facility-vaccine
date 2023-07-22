@@ -17,6 +17,8 @@ import useMyLocation from '@/hook/useMyLocation';
 import { ICity, IFacilityVaccine, IProvince } from '@/types/places';
 import api from '@/utils/api';
 import dynamic from 'next/dynamic';
+import SneekPeekRoute from '@/components/SneekPeekRoute';
+import DetailRoute from '@/components/DetailRoute';
 
 const Map = dynamic(() => import('@/components/Map'), { ssr: false });
 
@@ -107,7 +109,9 @@ const FindMedical = () => {
         </div>
 
         <SneakPeekFacility />
+        <SneekPeekRoute />
         <DetailFacility />
+        <DetailRoute />
       </Sidebar>
 
       <div className="z-0 transition duration-600 relative">
