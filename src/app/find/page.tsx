@@ -100,7 +100,7 @@ const FindMedical = () => {
 
           <Button
             size="sm"
-            className="mt-4 text-ss bg-stone-200 dark:bg-stone-700 text-stone-700 dark:text-stone-200 hover:dark:bg-stone-900"
+            className="mt-4 text-ss bg-stone-200 dark:bg-stone-700 text-stone-700 dark:text-stone-200 hover:bg-stone-300 hover:dark:bg-stone-900"
             onClick={onSearch}
             isLoading={loading}
           >

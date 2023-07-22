@@ -7,7 +7,7 @@ const SneakPeekFacility = () => {
 
   if (!facility) return null;
 
-  const { nama, telp, alamat, latitude, longitude } = facility;
+  const { nama, telp, alamat, latitude, longitude, status } = facility;
 
   return (
     <div className="container px-10 text-stone-800 dark:text-stone-200 mt-4 pb-4 border-b border-stone-600">

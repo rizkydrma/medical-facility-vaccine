@@ -25,7 +25,7 @@ const Map: FC<MapProps> = ({ myLocation, facilities }) => {
 
   const createClusterCustomIcon = function (cluster: any): any {
     return divIcon({
-      html: `<span class="dark:bg-stone-700 bg-stone-50 dark:border-stone-200 border-stone-700 dark:text-stone-200 text-stone-700 p-3 rounded-full border-2 w-10 h-10 flex items-center justify-center ">${cluster.getChildCount()}</span>`,
+      html: `<span class="dark:bg-stone-700 bg-stone-50 dark:border-stone-200 border-sky-600 dark:text-stone-200 text-stone-700 p-3 rounded-full border-2 w-10 h-10 flex items-center justify-center ">${cluster.getChildCount()}</span>`,
       className: 'custom-marker-cluster',
       iconSize: point(33, 33, true),
     });
