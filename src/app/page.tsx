@@ -3,6 +3,7 @@ import Card from '@/components/Card';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import Icons from '@/components/Icons';
+import IndonesiaMap from '@/components/IndonesiaMap';
 import Navbar from '@/components/Navbar';
 import LargeHeading from '@/components/ui/LargeHeading';
 import Paragraph from '@/components/ui/Paragraph';
@@ -60,11 +61,21 @@ export default function Home() {
             Here are several reasons why you should consider getting vaccinated:
           </Paragraph>
 
-          <div className="flex w-full gap-6 flex-col md:flex-row mt-6">
+          <div className="grid w-full gap-6 grid-cols-12 mt-6">
             {advantages?.map((advantage) => (
               <Card {...advantage} key={advantage?.title} />
             ))}
           </div>
+        </div>
+
+        <div className="container pt-32">
+          <LargeHeading size="sm" className="text-left">
+            Geography of Indonesia
+          </LargeHeading>
+          <Paragraph className="text-left mt-6" size="sm">
+            {/* Point the cursor to see the name of the province */}
+          </Paragraph>
+          <IndonesiaMap />
         </div>
         <Footer />
       </div>
