@@ -1,3 +1,4 @@
+import Advantages from '@/components/Advantages';
 import Banner from '@/components/Banner';
 import Card from '@/components/Card';
 import Footer from '@/components/Footer';
@@ -61,11 +62,7 @@ export default function Home() {
             Here are several reasons why you should consider getting vaccinated:
           </Paragraph>
 
-          <div className="grid w-full gap-6 grid-cols-12 mt-6">
-            {advantages?.map((advantage) => (
-              <Card {...advantage} key={advantage?.title} />
-            ))}
-          </div>
+          <Advantages advantages={advantages} />
         </div>
 
         <div className="container pt-32">
