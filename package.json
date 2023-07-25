@@ -1,6 +1,14 @@
 {
   "name": "code",
-  "version": "0.1.0",
+  "version": " 1.0.0",
+  "description": "Web App to find for medical facilities based on cities in Indonesia",
+  "homepage":  "https://medical-facility-vaccine.vercel.app",
+  "author": {
+    "name": "Rizky Darma R",
+    "email": "rizky.darmarazak@gmail.com",
+    "url": "https://rizkydarma.com",
+  }
+  "contributors":[],
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -42,5 +50,6 @@
     "@types/leaflet": "^1.9.3",
     "@types/leaflet-routing-machine": "^3.2.4",
     "@types/three": "^0.154.0"
-  }
+  },
+  "license": "MIT"
 }
